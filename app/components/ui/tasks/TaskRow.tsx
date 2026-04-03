@@ -8,13 +8,13 @@ import Avatar from "../Avatar";
 import PriorityBadge from "../PriorityBadge";
 import CategoryBadge from "./Categorybadge";
 
-
 const AVATAR_COLORS: Record<string, string> = {
     "Sarah Chen": "#3B82F6",
     "Mike Park":  "#8B5CF6",
     "Alex Kim":   "#10B981",
     "Julia Lee":  "#EF4444",
 };
+
 interface TaskRowProps {
     task: Task;
 }
@@ -31,10 +31,10 @@ function isOverdue(dateStr: string | null): boolean {
 }
 
 const statusDotColor: Record<string, string> = {
-    BACKLOG: "bg-gray-300",
+    BACKLOG:     "bg-gray-300",
     IN_PROGRESS: "bg-blue-500",
-    BLOCKED: "bg-red-500",
-    DONE: "bg-green-500",
+    BLOCKED:     "bg-red-500",
+    DONE:        "bg-green-500",
 };
 
 export default function TaskRow({ task }: TaskRowProps) {
@@ -62,34 +62,31 @@ export default function TaskRow({ task }: TaskRowProps) {
                 <span className="text-[10px] text-gray-400">{task.code}</span>
             </div>
 
-            <div className="flex -space-x-1.5 w-16 justify-center">
+            <div className="flex -space-x-1.5 w-14 justify-center">
                 {task.assignees?.slice(0, 3).map((u) => (
-                    <Avatar name={u.initials} bg={AVATAR_COLORS[u.name] ?? "#3B82F6"} rad="50%" size="24px" text="9px"/>
+                    <Avatar key={u.id} name={u.initials} bg={AVATAR_COLORS[u.name] ?? "#3B82F6"} rad="50%" size="24px" text="9px" />
                 ))}
             </div>
 
-            <div className="w-20 flex justify-center">
+            <div className="w-16 flex justify-center">
                 <PriorityBadge priority={task.priority} />
             </div>
 
-            <div className="w-16 text-center text-xs text-gray-500">
+            <div className="md:hidden lg:flex w-14 text-center text-xs text-gray-500 justify-center">
                 {formatDate(task.startDate)}
             </div>
 
-            <div className={`w-16 text-center text-xs font-medium ${isOverdue(task.dueDate) ? "text-red-500" : "text-gray-500"}`}>
+            <div className={`w-14 text-center text-xs font-medium ${isOverdue(task.dueDate) ? "text-red-500" : "text-gray-500"}`}>
                 {formatDate(task.dueDate)}
             </div>
 
-            <div className="w-24 flex justify-center">
+            <div className="md:hidden lg:flex w-20 justify-center">
                 <CategoryBadge category={task.category} />
             </div>
 
             <div className="relative w-6 flex-shrink-0">
                 <button
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        setMenuOpen(!menuOpen);
-                    }}
+                    onClick={(e) => { e.stopPropagation(); setMenuOpen(!menuOpen); }}
                     className="opacity-0 group-hover:opacity-100 p-1 rounded hover:bg-gray-200 transition-all"
                 >
                     <MoreHorizontal className="w-4 h-4 text-gray-500" />

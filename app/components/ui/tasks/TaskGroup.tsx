@@ -24,26 +24,16 @@ export default function TaskGroup({ status, tasks, onNewTask }: TaskGroupProps) 
 
   return (
     <div className="mb-1">
-      {/* Group header */}
       <div className="flex items-center gap-2 px-4 py-2 hover:bg-gray-50 rounded-lg group">
-        <button
-          onClick={() => setCollapsed(!collapsed)}
-          className="flex items-center gap-2 flex-1"
-        >
-          <ChevronRight
-            className={`w-3.5 h-3.5 text-gray-400 transition-transform ${collapsed ? "" : "rotate-90"}`}
-          />
+        <button onClick={() => setCollapsed(!collapsed)} className="flex items-center gap-2 flex-1">
+          <ChevronRight className={`w-3.5 h-3.5 text-gray-400 transition-transform ${collapsed ? "" : "rotate-90"}`} />
           <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-xs font-semibold ${cfg.bg} ${cfg.text} border ${cfg.border}`}>
             {cfg.label}
           </span>
           <span className="text-xs text-gray-400 font-medium">{tasks.length}</span>
         </button>
-
         <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-          <button
-            onClick={() => onNewTask(status)}
-            className="p-1 rounded hover:bg-gray-200 text-gray-500 hover:text-gray-700"
-          >
+          <button onClick={() => onNewTask(status)} className="p-1 rounded hover:bg-gray-200 text-gray-500 hover:text-gray-700">
             <Plus className="w-3.5 h-3.5" />
           </button>
           <button className="p-1 rounded hover:bg-gray-200 text-gray-500 hover:text-gray-700">
@@ -58,11 +48,11 @@ export default function TaskGroup({ status, tasks, onNewTask }: TaskGroupProps) 
             <div className="w-3.5 h-3.5 flex-shrink-0" />
             <div className="w-2 h-2 flex-shrink-0" />
             <div className="flex-1">Name</div>
-            <div className="w-16 text-center">Assignee</div>
-            <div className="w-20 text-center">Priority</div>
-            <div className="w-16 text-center">Start</div>
-            <div className="w-16 text-center">Due</div>
-            <div className="w-24 text-center">Category</div>
+            <div className="w-14 text-center">Assignee</div>
+            <div className="w-16 text-center">Priority</div>
+            <div className="md:hidden lg:block w-14 text-center">Start</div>
+            <div className="w-14 text-center">Due</div>
+            <div className="md:hidden lg:block w-20 text-center">Category</div>
             <div className="w-6" />
           </div>
 
