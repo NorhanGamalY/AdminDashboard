@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {  Inter } from "next/font/google";
 import "./globals.css";
 import LayoutClient from './components/LayoutClient';
+import Providers from "@/components/Providers";
 
 const inter = Inter({
   variable: "--font-inter-sans",
@@ -26,7 +27,9 @@ export default function RootLayout({
       className={`${inter.variable}  h-full antialiased`}
     >
       <body className="min-h-full flex ">
-        <LayoutClient>{children}</LayoutClient>
+        <LayoutClient>
+        <Providers>{children}</Providers>
+        </LayoutClient>
 
       </body>
     </html>

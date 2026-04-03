@@ -24,9 +24,9 @@ export default function Navbar({ section, title }: NavbarProps) {
                     <Search style={{ width: "14px", height: "14px", }} />
                 </div>
             </div>
-            <span className="text-[13px] text-[#71717A]"><Bell /></span>
-            <span className="text-[13px] text-[#71717A]"><Settings /></span>
-            <Avatar bg="#7C3AED" size="32px" rad="50%" />
+            <span className="text-[13px] text-[#71717A] rounded-[8px] hover:bg-gray-100 border-1 p-1 border-[#E4E4E7]"><Bell className="w-[16px] h-[16px]" /></span>
+            <span className="text-[13px] text-[#71717A] rounded-[8px] hover:bg-gray-100 border-1 p-1 border-[#E4E4E7]"><Settings className="w-[16px] h-[16px]" /></span>
+            <Avatar bg="#7C3AED" size="32px" rad="50%" name="SC" />
             
             <div>
             </div>

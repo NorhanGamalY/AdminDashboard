@@ -45,7 +45,8 @@ type SidebarProps = {
 }
 export default function Sidebar({ setActiveTab }: SidebarProps) {
     return (
-        <aside className="lg:w-[240px] py-1 lg:min-h-[900px] flex flex-col g-0 border-r border-[#e8e8f0] transition-all duration-300 ">
+        <aside className="lg:w-[240px] py-1 lg:min-h-[900px] flex flex-col justify-between g-0 border-r border-[#e8e8f0] transition-all duration-300 ">
+            <div>
             <div className="flex justify-start align-start gap-[10px] px-2 lg:min-h-[56px]">
                 <Avatar name={adminDetails[0].title} bg="#7C3AED" size="32px" rad="8px" />
                 <div className="flex justify-start gap-[2px] align-start py-0 lg:min-w-[144px] lg:min-h-[56px]">
@@ -98,6 +99,18 @@ export default function Sidebar({ setActiveTab }: SidebarProps) {
                             />
                         ))}
                     </nav>
+                </div>
+            </div>
+
+        </div>
+
+            <div className="px-4 py-3 border-t border-gray-100">
+                <div className="flex items-center gap-2">
+                    <Avatar name={adminDetails[0].name} bg="#6366F1" size="28px" rad="50%" />
+                <div className="flex-1 min-w-0">
+                    <p className="text-xs font-medium text-gray-800 truncate">{adminDetails[0].name}</p>
+                    <p className="text-[10px] text-gray-400 truncate">{adminDetails[0].email}</p>
+                </div>
                 </div>
             </div>
 
